@@ -25,11 +25,6 @@ function IssueContainer(props) {
       )}
     </React.Fragment>
   );
-  if (issue) {
-    return;
-  } else {
-    return;
-  }
 }
 
 export default IssueContainer;

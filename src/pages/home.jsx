@@ -1,5 +1,4 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap/";
 import HomeInro from "../parts/homeIntro";
 import SearchIssues from "../parts/searchIssues";
 import Preload from "../parts/preload";
