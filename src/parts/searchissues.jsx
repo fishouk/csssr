@@ -3,7 +3,7 @@ import { Container, Row, Col, Form } from "react-bootstrap/";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { githubActions } from "../actions/fetchGithub";
-import ReposDropDownContainer from "./reposdropdowncontainer";
+import DropDownMenu from "./dropDownMenu";
 
 class SearchIssues extends Component {
   state = {
@@ -43,7 +43,12 @@ class SearchIssues extends Component {
   };
 
   handleSubmit = e => {
-    const { loadIssues, dropLastIssues, countIssuesForPagination } = this.props;
+    const {
+      loadIssues,
+      dropLastIssues,
+      countIssuesForPagination,
+      history
+    } = this.props;
     this.setState({ submitted: true });
 
     let { searchUserName, searchUserRepo, itemsOnPage } = this.state;
@@ -58,6 +63,7 @@ class SearchIssues extends Component {
       countIssuesForPagination(searchUserName, searchUserRepo, itemsOnPage);
       loadIssues(searchUserName, searchUserRepo, itemsOnPage);
       this.trigerReposDropdown(false);
+      history.push("/");
     }
 
     e.preventDefault();
@@ -72,7 +78,6 @@ class SearchIssues extends Component {
       itemsOnPage,
       submitted
     } = this.state;
-
     return (
       <Container>
         <Row>
@@ -88,7 +93,7 @@ class SearchIssues extends Component {
                   value={searchUserName}
                   onChange={this.handleChange}
                 />
-                <ReposDropDownContainer
+                <DropDownMenu
                   searchUserName={searchUserName}
                   reposSearch={this.reposSearch}
                   searchUserRepo={searchUserRepo}
@@ -129,11 +134,10 @@ class SearchIssues extends Component {
         </Row>
       </Container>
     );
-  };
-};
+  }
+}
 
-const mapStateToProps = state => ({
-});
+const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getRepos } from "../reducers/index";
-import ReposDropDown from "./reposdropdown";
+import DropDownList from "./dropDownList";
 
 function SearchIssues(props) {
   let { repos } = props;
@@ -38,7 +38,7 @@ function SearchIssues(props) {
       />
       {showReposDropdown ? (
         <div className="repos_dropdown_menu">
-          <ReposDropDown filteredRepos={repos} handleSubmit={handleSubmit} />
+          <DropDownList filteredRepos={repos} handleSubmit={handleSubmit} />
         </div>
       ) : null}
     </div>

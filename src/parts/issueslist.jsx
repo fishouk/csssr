@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap/";
 import { connect } from "react-redux";
 import { getIssues } from "../reducers/index";
-import IssueRow from "./issuerow";
+import IssueRow from "./issueRow";
 
 function IssuesList(props) {
   const { issues } = props;

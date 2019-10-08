@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap/";
+import { Link } from "react-router-dom";
 
 function IssueRow(props) {
   const { issue } = props;
@@ -11,9 +12,7 @@ function IssueRow(props) {
           <div className="card-body">
             <h5 className="card-title">{issue.title}</h5>
             <p className="card-text">Issue date: {issue.created_at}</p>
-            <a href="#" className="btn btn-primary">
-              Go somewhere
-            </a>
+            <Link  className="btn btn-primary" to={`/issue/${issue.id}`}>Подробнее</Link> 
           </div>
         </div>
       </Col>
